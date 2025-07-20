@@ -14,3 +14,12 @@
 body {
   font-family: var(--font-nunito-sans);
 }
+
+.parallelogram-btn {
+  transform: skew(-30deg);
+}
+
+.skew-clear
+{
+  transform: skew(0deg);
+}
