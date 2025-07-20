@@ -4,7 +4,10 @@
     "**/.svn": true,
     "**/.hg": true,
     "**/.DS_Store": true,
-    "**/Thumbs.db": true
+    "**/Thumbs.db": true,
+    "node_modules": true,
+    ".vscode": true,
+    ".next": true
   },
-  "hide-files.files": []
+  "hide-files.files": ["node_modules", ".vscode", ".next"]
 }
