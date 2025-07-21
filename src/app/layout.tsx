@@ -1,10 +1,16 @@
-import { Nunito_Sans } from "next/font/google";
+import { Nunito_Sans, Mea_Culpa } from "next/font/google";
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 
 const nunitoSans = Nunito_Sans({
   variable: "--font-nunito-sans",
   subsets: ["latin"],
+});
+
+const meaCulpa = Mea_Culpa({
+  variable: "--font-mea-culpa",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -20,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunitoSans.variable} antialiased`}
+        className={`${nunitoSans.variable} ${meaCulpa.variable} antialiased`}
       >
         {children}
       </body>
