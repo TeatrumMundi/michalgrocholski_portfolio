@@ -20,13 +20,18 @@ function Nav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      let current = "home";
-      for (const section of sections) {
+      let current = "";
+      const navHeight = 120; // Same offset as in handleClick
+
+      // Find the section that is currently in view
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
         const id = section.href.replace("#", "");
         const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 80 && rect.bottom > 80) {
+          // Check if the section is in the viewport, accounting for nav height
+          if (rect.top <= navHeight) {
             current = id;
             break;
           }
@@ -40,7 +45,7 @@ function Nav() {
   }, []);
 
   return (
-    <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-liquid rounded-3xl overflow-hidden border border-border backdrop-blur-xs">
+    <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-liquid-100 rounded-3xl overflow-hidden border border-border backdrop-blur-xs">
       <div className="flex flex-row text-lg font-semibold ">
         {sections.map((section) => (
           <NavItem
@@ -69,9 +74,18 @@ function NavItem({ title, href, active, icon }: NavItemProps) {
     const id = href.replace("#", "");
     const navElement = document.getElementById(id);
     if (navElement) {
-      navElement.scrollIntoView({ behavior: "smooth" });
+      // Calculate offset to account for fixed navigation bar
+      const navHeight = 120; // Approximate height of nav + padding
+      const elementPosition =
+        navElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
-    // Optionally, update the URL hash:
+    // Update the URL hash:
     window.history.replaceState(null, "", href);
   };
 

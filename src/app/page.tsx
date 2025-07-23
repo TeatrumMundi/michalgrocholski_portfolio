@@ -2,6 +2,7 @@
 
 import Nav from "@/components/Nav";
 import Home from "@/components/home/Home";
+import Contact from "@/components/Contact";
 import Projects from "@/components/Projects";
 
 function HomePage() {
@@ -10,6 +11,7 @@ function HomePage() {
       <Nav />
       <Home />
       <Projects />
+      <Contact />
     </div>
   );
 }

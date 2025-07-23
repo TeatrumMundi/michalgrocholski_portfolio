@@ -9,7 +9,7 @@ interface MediaButtonProps {
 function MediaButton({ label, iconUrl, url }: MediaButtonProps) {
   return (
     <a
-      className="bg-liquid text-white p-2 max-h-10 rounded-cell hover:scale-110 transition-transform duration-500"
+      className="bg-liquid-100 text-white p-2 max-h-10 rounded-cell hover:scale-110 transition-transform duration-500"
       href={url}
       target="_blank"
       rel="noopener noreferrer"

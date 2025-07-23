@@ -2,7 +2,6 @@ import { projects } from "@/config/config";
 
 /* eslint-disable @next/next/no-img-element */
 function Projects() {
-
   return (
     <div className="min-h-screen px-6" id="projects">
       <p className="text-white/50 text-center text-xl mt-10 mb-3">
@@ -22,13 +21,13 @@ function Projects() {
             className="bg-gray-800/50 rounded-lg overflow-hidden border border-gray-700/50 hover:border-gray-600/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:rotate-1 transform-gpu perspective-1000"
           >
             {/* Browser Window Header */}
-            <div className="bg-gray-700/80 px-4 py-3 flex items-center gap-2">
+            <div className="bg-liquid-100 px-4 py-3 flex items-center gap-2">
               <div className="flex gap-2">
                 <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                 <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               </div>
-              <div className="flex-1 bg-gray-600/50 rounded mx-4 px-3 py-1">
+              <div className="flex-1 bg-liquid-100 rounded-standard mx-4 px-3 py-1">
                 <span className="text-white/70 text-sm">{project.liveUrl}</span>
               </div>
             </div>
@@ -46,7 +45,7 @@ function Projects() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 border border-blue-400/50 hover:border-blue-300"
+                    className="bg-accent-200 hover:bg-accent-100 transition-all duration-500 px-6 py-3 rounded-standard text-center font-semibold border border-accent-100 flex items-center justify-center"
                   >
                     Live Demo
                   </a>
@@ -54,7 +53,7 @@ function Projects() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 border border-gray-500/50 hover:border-gray-400"
+                    className="bg-liquid-100 hover:bg-liquid-200 transition-all duration-500 px-6 py-3 rounded-standard text-center font-semibold border border-border flex items-center justify-center"
                   >
                     GitHub
                   </a>

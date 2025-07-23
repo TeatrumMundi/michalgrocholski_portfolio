@@ -1,19 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --liquid-background:  color-mix(in oklab, var(--color-white) 10%, transparent);
+  --liquid-background-100:  color-mix(in oklab, var(--color-white) 10%, transparent);
+  --liquid-background-200: color-mix(in oklab, var(--color-white) 20%, transparent);
+
+  --accent-background-100: color-mix(in oklab, var(--color-teal-300) 10%, transparent);
+  --accent-background-200: color-mix(in oklab, var(--color-teal-300) 20%, transparent);
+
   --border-color: color-mix(in oklab, var(--color-white) 20%, transparent);
   --rounded: 1.5rem;
   --rounded-cell: 0.75rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-liquid-100: var(--liquid-background-100);
+  --color-liquid-200: var(--liquid-background-200);
 
-  --color-liquid: var(--liquid-background);
+  --color-accent-100: var(--accent-background-100);
+  --color-accent-200: var(--accent-background-200);
+
   --color-border: var(--border-color);
   --font-sans: var(--font-nunito-sans);
   --font-my: var(--font-mea-culpa);

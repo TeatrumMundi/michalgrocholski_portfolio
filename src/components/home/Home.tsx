@@ -5,6 +5,7 @@ import MediaButton from "@/components/home/MediaButton";
 import NameBox from "@/components/home/NameBox";
 import SkillsBox from "@/components/home/SkillsBox";
 import { mediaButtons, skillsData } from "@/config/config";
+import Image from "next/image";
 
 function Home() {
   return (
@@ -36,7 +37,7 @@ function Home() {
             />
           </p>
           <p className="mt-4 text-lg">Explore my projects and skills.</p>
-          <div className="flex flex-row flex-wrap gap-y-2 gap-2 mt-6 bg-liquid border border-border rounded-standard p-4">
+          <div className="flex flex-row flex-wrap gap-y-2 gap-2 mt-6 bg-liquid-100 border border-border rounded-standard p-4">
             {mediaButtons.map((media) => (
               <MediaButton
                 key={media.label}
@@ -46,6 +47,17 @@ function Home() {
               />
             ))}
           </div>
+          <a href="/CV_Michał_Grocholski_2025_Q3.pdf" target="_blank" className="mt-6 inline-block px-6 py-3 bg-liquid-100 text-white rounded-standard hover:bg-liquid-200 hover:scale-105 transition-all duration-300 border border-border">
+            <span>Download CV</span>
+            <Image
+              className="inline-block ml-2"
+              src="/icons/cv.svg"
+              alt="CV Icon"
+              width={20}
+              height={20}
+              >
+            </Image>
+          </a>
         </div>
       </div>
 
@@ -63,6 +75,7 @@ function Home() {
             />
           ))}
         </div>
+        
       </div>
     </div>
   );
