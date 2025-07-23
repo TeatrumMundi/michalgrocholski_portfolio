@@ -25,7 +25,7 @@ function SkillsBox({
         {skills.map((skill, idx) => (
           <div
             key={idx}
-            className="flex flex-row items-center gap-2 p-2 px-3 rounded-xl bg-liquid-100 backdrop-blur-md hover:bg-liquid-200 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+            className="flex flex-row items-center gap-2 p-2 px-4 rounded-standard bg-liquid-100 backdrop-blur-md hover:bg-liquid-200 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
           >
             <span className="text-white font-medium">{skill.title}</span>
             {skill.iconUrl && (

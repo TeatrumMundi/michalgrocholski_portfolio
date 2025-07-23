@@ -122,3 +122,10 @@ export const skillsData = [
     ],
   },
 ];
+
+export const contactInfo = {
+  email: "michal3659@gmail.com",
+  phone: "+48 530 270 402",
+  location: "Gdańsk, Poland",
+  availability: "Available for freelance projects and full-time opportunities",
+};

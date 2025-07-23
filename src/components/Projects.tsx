@@ -64,7 +64,7 @@ function Projects() {
             {/* Project Info */}
             <div className="p-6">
               <h3 className="text-xl font-semibold text-white mb-2">
-                {project.title}
+                <span className="bg-liquid-100 p-1 px-4 rounded-standard">{project.title}</span>
               </h3>
               <p className="text-gray-300 mb-4">{project.description}</p>
 
