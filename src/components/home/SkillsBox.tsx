@@ -7,7 +7,6 @@ interface Skill {
 
 interface SkillsBoxProps {
   skills: Skill[];
-  color?: string;
   className?: string;
   title?: string;
   titleClassName?: string;
@@ -15,22 +14,20 @@ interface SkillsBoxProps {
 
 function SkillsBox({
   skills,
-  color,
   className,
   title,
   titleClassName,
 }: SkillsBoxProps) {
   return (
-    <div className={className || ""}>
-      {title && <h2 className={titleClassName}>{title}</h2>}
+    <div className={`backdrop-blur-md border border-border rounded-standard p-2 px-4 shadow-lg hover:shadow-xl transition-all duration-300 ${className} mt-2`}>
+      {title && <h2 className={`text-3xl italic ${titleClassName}`}>{title}</h2>}
       <div className="flex flex-row flex-wrap gap-2 gap-y-2 mt-2">
         {skills.map((skill, idx) => (
           <div
             key={idx}
-            className="flex flex-row items-center gap-2 p-1 px-2 rounded-sm"
-            style={{ backgroundColor: color || "#222222" }}
+            className="flex flex-row items-center gap-2 p-2 px-3 rounded-xl bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
           >
-            {skill.title}
+            <span className="text-white font-medium">{skill.title}</span>
             {skill.iconUrl && (
               <Image
                 className="inline-block"

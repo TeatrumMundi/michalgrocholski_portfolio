@@ -1,37 +1,7 @@
+import { projects } from "@/config/config";
+
 /* eslint-disable @next/next/no-img-element */
 function Projects() {
-  const projects = [
-    {
-      id: 1,
-      title: "Chrono Shifter",
-      description:
-        "Application for tracking and displaying League of Legends player profiles, match history, and statistics",
-      image: "/projects/chronoShifter.png", // Add your project screenshots
-      liveUrl: "https://www.chrono-shifter.com/",
-      githubUrl: "https://github.com/TeatrumMundi/ChronoShifter",
-      technologies: ["Next.js", "React", "Prisma", "Tailwind", "TypeScript"],
-    },
-    {
-      id: 2,
-      title: "SMK Kalendarz",
-      description:
-        "A React app to manage and visualize periods (e.g., vacations, internships) on a calendar.",
-      image: "/projects/smk_kalendarz.png",
-      liveUrl: "https://smk-kalendarz.vercel.app/",
-      githubUrl: "https://github.com/TeatrumMundi/smk-kalendarz",
-      technologies: ["Next.js", "React", "Tailwind", "TypeScript"],
-    },
-    {
-      id: 3,
-      title: "Flow Manager",
-      description:
-        "FlowManager is a modern system for comprehensive project, personnel, work time, and operational cost management.",
-      image: "/projects/flowManager.png",
-      liveUrl: "https://www.flow-manager.pl/",
-      githubUrl: "https://github.com/TeatrumMundi/flow_manager",
-      technologies: ["Next.js", "React", "Prisma", "Tailwind", "TypeScript"],
-    },
-  ];
 
   return (
     <div className="min-h-screen px-6" id="projects">
