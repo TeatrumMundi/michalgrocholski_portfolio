@@ -2,6 +2,7 @@ export const personalInfo = {
   name: "Michał Grocholski",
   title1: "Full Stack",
   title2: "Developer",
+  location: "Gdańsk, Poland",
 };
 
 export const projects = [

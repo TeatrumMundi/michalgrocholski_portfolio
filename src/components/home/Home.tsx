@@ -6,6 +6,7 @@ import NameBox from "@/components/home/NameBox";
 import SkillsBox from "@/components/home/SkillsBox";
 import { personalInfo, mediaButtons, skillsData } from "@/config/config";
 import Image from "next/image";
+import { MdOutlineLocationOn } from "react-icons/md";
 
 function Home() {
   return (
@@ -17,12 +18,14 @@ function Home() {
         {/* Left Side */}
         <div className="w-full max-w-md text-left">
           <NameBox name={personalInfo.name} />
-          <h1 className="text-7xl font-bold mt-2">
-            {personalInfo.title1}
-          </h1>
+          <h1 className="text-7xl font-bold mt-2">{personalInfo.title1}</h1>
           <h2 className="text-6xl font-bold bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text">
             {personalInfo.title2}
           </h2>
+          <div className="flex items-center gap-2">
+            <MdOutlineLocationOn className="text-xl" />
+            <h3>{personalInfo.location}</h3>
+          </div>
           <p className="mt-3">
             <Typewriter
               words={[
@@ -49,7 +52,11 @@ function Home() {
               />
             ))}
           </div>
-          <a href="/CV_Michał_Grocholski_2025_Q3.pdf" target="_blank" className="mt-6 inline-block px-6 py-3 bg-liquid-100 text-white rounded-standard hover:bg-liquid-200 hover:scale-105 transition-all duration-300 border border-border">
+          <a
+            href="/CV_Michał_Grocholski_2025_Q3.pdf"
+            target="_blank"
+            className="mt-6 inline-block px-6 py-3 bg-liquid-100 text-white rounded-standard hover:bg-liquid-200 hover:scale-105 transition-all duration-300 border border-border"
+          >
             <span>Download CV</span>
             <Image
               className="inline-block ml-2"
@@ -57,8 +64,7 @@ function Home() {
               alt="CV Icon"
               width={20}
               height={20}
-              >
-            </Image>
+            ></Image>
           </a>
         </div>
       </div>
@@ -77,7 +83,6 @@ function Home() {
             />
           ))}
         </div>
-        
       </div>
     </div>
   );
