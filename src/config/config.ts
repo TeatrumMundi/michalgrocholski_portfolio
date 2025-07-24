@@ -1,3 +1,9 @@
+export const personalInfo = {
+  name: "Michał Grocholski",
+  title1: "Full Stack",
+  title2: "Developer",
+};
+
 export const projects = [
   {
     id: 1,
@@ -129,3 +135,45 @@ export const contactInfo = {
   location: "Gdańsk, Poland",
   availability: "Available for freelance projects and full-time opportunities",
 };
+
+export const aboutMe = {
+  title: "About Me",
+  description: `Detail-oriented and proactive Quality Assurance professional, currently
+      working as a Graphics Software Development Intern at Intel.
+      Experienced in manual software testing and validation, with hands-on
+      involvement in executing automated test cases using tools like Cypress
+      and NUnit. Skilled in setting up validation platforms, analyzing results,
+      and supporting the QA process in cross-functional teams.
+      Outside of validation work, I have a strong passion for web development
+      — building responsive, user-friendly applications using modern
+      technologies such as React, Tailwind CSS, and Next.js. I continuously
+      strive to improve both software quality and user experience through
+      careful testing and clean frontend design.`,
+};
+
+export const experience = [
+  {
+    title: "Graphics Software Development Intern",
+    company: "Intel Corporation",
+    startDate: "01/07/2025",
+    endDate: "Present",
+    desc: "Managing and maintaining deployment databases to support smooth operations and traceability. Planning and coordinating future validation platforms to meet evolving business and technical needs. Overseeing shipments, deployments, and detailed rollout plans for hardware and software platforms. Collaborating closely with cross-functional teams across different countries to align goals and ensure timely delivery.",
+    photoPath: ["/experience/intel.jpg"],
+  },
+  {
+    title: "Manual Tester (contracted by Experis)",
+    company: "Intel Corporation",
+    startDate: "01/05/2022",
+    endDate: "31/12/2024",
+    desc: "Responsible for weekly validation processes, including preparing validation platforms, installing operating systems, flashing new BIOS versions, performing manual validation, reporting defects, and compiling validation summaries. Additionally, managed DHCP reservations for platform allocation and oversaw WDS configurations for OS installations. Operated within a structured workflow, participating in weekly team meetings to ensure smooth project execution and alignment with team objectives.",
+    photoPath: ["/experience/experis.png", "/experience/intel.jpg"],
+  },
+  {
+    title: "Electric Engineer Assistant",
+    company: "G.Z.R.M SP. z o.o.",
+    startDate: "01/02/2022",
+    endDate: "31/04/2022",
+    desc: "Mounting electrical boxes. Making necessary cables. Keeping site clean and organized.",
+    photoPath: ["/experience/gzrm.png"],
+  },
+];

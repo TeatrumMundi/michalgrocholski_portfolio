@@ -1,6 +1,6 @@
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { MdOutlineContactMail } from "react-icons/md";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { CiCircleInfo } from "react-icons/ci";
 import { GoHome } from "react-icons/go";
 
@@ -17,6 +17,7 @@ const sections = [
 
 function Nav() {
   const [activeSection, setActiveSection] = useState<string>("home");
+  const previousSectionRef = useRef<string>("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,7 +38,15 @@ function Nav() {
           }
         }
       }
+
+      // Update active section state
       setActiveSection(current);
+
+      // Update URL hash if section changed
+      if (current && current !== previousSectionRef.current) {
+        window.history.replaceState(null, "", `#${current}`);
+        previousSectionRef.current = current;
+      }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();

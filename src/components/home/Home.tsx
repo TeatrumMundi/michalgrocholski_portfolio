@@ -4,7 +4,7 @@ import { Typewriter } from "react-simple-typewriter";
 import MediaButton from "@/components/home/MediaButton";
 import NameBox from "@/components/home/NameBox";
 import SkillsBox from "@/components/home/SkillsBox";
-import { mediaButtons, skillsData } from "@/config/config";
+import { personalInfo, mediaButtons, skillsData } from "@/config/config";
 import Image from "next/image";
 
 function Home() {
@@ -16,10 +16,12 @@ function Home() {
       <div className="flex flex-col items-center justify-center h-full mb-50">
         {/* Left Side */}
         <div className="w-full max-w-md text-left">
-          <NameBox name="Michał Grocholski" />
-          <h1 className="text-7xl font-bold mt-2">Full Stack</h1>
+          <NameBox name={personalInfo.name} />
+          <h1 className="text-7xl font-bold mt-2">
+            {personalInfo.title1}
+          </h1>
           <h2 className="text-6xl font-bold bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text">
-            Developer
+            {personalInfo.title2}
           </h2>
           <p className="mt-3">
             <Typewriter
