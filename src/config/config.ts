@@ -101,7 +101,7 @@ export const skillsData = [
       "bg-gradient-to-r from-purple-400 via-fuchsia-500 to-pink-500 text-transparent bg-clip-text",
     skills: [
       { title: "Prisma", iconUrl: "/icons/prisma.svg" },
-      { title: "PostgreSQL", iconUrl: "/icons/PostgreSQL.svg" },
+      { title: "PostgreSQL"},
       { title: "SQL Lite" },
     ],
   },
