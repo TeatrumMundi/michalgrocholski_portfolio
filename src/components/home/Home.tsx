@@ -53,7 +53,7 @@ function Home() {
             ))}
           </div>
           <a
-            href="/CV_Michał_Grocholski_2025_Q3.pdf"
+            href="/CV_Michał_Grocholski_2025_Q4.pdf"
             target="_blank"
             className="mt-6 inline-block px-6 py-3 bg-liquid-100 text-white rounded-standard hover:bg-liquid-200 hover:scale-105 transition-all duration-300 border border-border"
           >
