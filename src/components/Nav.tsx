@@ -21,8 +21,8 @@ function Nav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      let current = "";
-      const navHeight = 120; // Same offset as in handleClick
+      let current = "home";
+      const navHeight = 140;
 
       // Find the section that is currently in view
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -31,7 +31,6 @@ function Nav() {
         const el = document.getElementById(id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          // Check if the section is in the viewport, accounting for nav height
           if (rect.top <= navHeight) {
             current = id;
             break;
@@ -39,23 +38,25 @@ function Nav() {
         }
       }
 
-      // Update active section state
       setActiveSection(current);
 
-      // Update URL hash if section changed
       if (current && current !== previousSectionRef.current) {
         window.history.replaceState(null, "", `#${current}`);
         previousSectionRef.current = current;
       }
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-liquid-100 rounded-3xl overflow-hidden border border-border backdrop-blur-xs">
-      <div className="flex flex-row text-lg font-semibold ">
+    <nav
+      aria-label="Primary navigation"
+      className="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-liquid-100 rounded-3xl overflow-hidden border border-border backdrop-blur-md shadow-lg max-w-[95vw]"
+    >
+      <div className="flex flex-row text-lg font-semibold">
         {sections.map((section) => (
           <NavItem
             key={section.href}
@@ -63,6 +64,7 @@ function Nav() {
             href={section.href}
             icon={section.icon}
             active={activeSection === section.href.replace("#", "")}
+            onSelect={(id) => setActiveSection(id)}
           />
         ))}
       </div>
@@ -75,26 +77,26 @@ interface NavItemProps {
   href: string;
   icon?: React.ReactNode;
   active?: boolean;
+  onSelect?: (id: string) => void;
 }
 
-function NavItem({ title, href, active, icon }: NavItemProps) {
+function NavItem({ title, href, active, icon, onSelect }: NavItemProps) {
   const handleClick = (mouseEvent: React.MouseEvent<HTMLAnchorElement>) => {
     mouseEvent.preventDefault();
     const id = href.replace("#", "");
+    onSelect?.(id);
     const navElement = document.getElementById(id);
     if (navElement) {
-      // Calculate offset to account for fixed navigation bar
-      const navHeight = 120; // Approximate height of nav + padding
+      const navHeight = 120;
       const elementPosition =
-        navElement.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - navHeight;
+        navElement.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = Math.max(0, elementPosition - navHeight);
 
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
       });
     }
-    // Update the URL hash:
     window.history.replaceState(null, "", href);
   };
 
@@ -102,16 +104,17 @@ function NavItem({ title, href, active, icon }: NavItemProps) {
     <a
       href={href}
       onClick={handleClick}
+      aria-current={active ? "page" : undefined}
       className={
-        `p-2 px-6 cursor-pointer transition-all duration-300 transform rounded-3xl ` +
+        `py-2 px-3 sm:px-6 cursor-pointer transition-all duration-300 transform rounded-3xl ` +
         (active
-          ? "text-teal-500 font-bold bg-teal-300/20 shadow-lg"
+          ? "text-teal-400 font-bold bg-teal-300/20 shadow-lg"
           : "text-white hover:bg-teal-200/10 hover:shadow-md")
       }
     >
       <span className="flex flex-col items-center justify-center gap-1">
         <span className="text-xl">{icon}</span>
-        <span className="text-sm">{title}</span>
+        <span className="text-xs sm:text-sm">{title}</span>
       </span>
     </a>
   );

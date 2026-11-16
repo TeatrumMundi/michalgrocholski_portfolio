@@ -15,13 +15,26 @@ const meaCulpa = Mea_Culpa({
 
 export const metadata: Metadata = {
   title: "Portfolio | Michał Grocholski",
-  description: "Portfolio of Michał Grocholski, a full stack developer specializing in web development.",
-  keywords: ['Michał', 'Grocholski', 'Michał Grocholski', 'Portfolio', 'Web Developer', 'Full Stack Developer', 'React', 'Next.js', 'JavaScript'],
-  creator: 'Michał Grocholski',
-  publisher: 'Michał Grocholski',
+  description:
+    "Portfolio of Michał Grocholski — Full Stack Developer and Systems & Platform Validation Engineer at Intel in Gdańsk, Poland.",
+  keywords: [
+    "Michał",
+    "Grocholski",
+    "Michał Grocholski",
+    "Portfolio",
+    "Web Developer",
+    "Full Stack Developer",
+    "Systems & Platform Validation Engineer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Odoo",
+  ],
+  creator: "Michał Grocholski",
+  publisher: "Michał Grocholski",
   icons: {
     icon: "/main/portfolio.svg",
-  }
+  },
 };
 
 export default function RootLayout({

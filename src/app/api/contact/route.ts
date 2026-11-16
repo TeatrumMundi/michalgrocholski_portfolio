@@ -1,9 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+function escapeHtml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, subject, message } = await request.json();
+    const body = await request.json();
+    const name = typeof body.name === "string" ? body.name.trim() : "";
+    const email = typeof body.email === "string" ? body.email.trim() : "";
+    const subject = typeof body.subject === "string" ? body.subject.trim() : "";
+    const message = typeof body.message === "string" ? body.message.trim() : "";
 
     // Validate required fields
     if (!name || !email || !subject || !message) {
@@ -13,8 +28,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!EMAIL_REGEX.test(email)) {
+      return NextResponse.json(
+        { error: "Invalid email address" },
+        { status: 400 }
+      );
+    }
+
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeSubject = escapeHtml(subject);
+    const safeMessage = escapeHtml(message);
+
     // Create a transporter using Gmail SMTP
-    // Note: You'll need to set up environment variables for security
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -27,7 +53,8 @@ export async function POST(request: NextRequest) {
     const mailOptions = {
       from: process.env.EMAIL_USER || "michal3659@gmail.com",
       to: "michal3659@gmail.com",
-      subject: `Portfolio Contact: ${subject}`,
+      replyTo: email,
+      subject: `Portfolio Contact: ${subject.replace(/[\r\n]+/g, " ")}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #7c3aed; border-bottom: 2px solid #7c3aed; padding-bottom: 10px;">
@@ -36,14 +63,14 @@ export async function POST(request: NextRequest) {
           
           <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="color: #1e293b; margin-top: 0;">Contact Details:</h3>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Subject:</strong> ${subject}</p>
+            <p><strong>Name:</strong> ${safeName}</p>
+            <p><strong>Email:</strong> ${safeEmail}</p>
+            <p><strong>Subject:</strong> ${safeSubject}</p>
           </div>
           
           <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="color: #1e293b; margin-top: 0;">Message:</h3>
-            <p style="line-height: 1.6; white-space: pre-wrap;">${message}</p>
+            <p style="line-height: 1.6; white-space: pre-wrap;">${safeMessage}</p>
           </div>
           
           <div style="margin-top: 30px; padding: 15px; background-color: #e0e7ff; border-radius: 8px;">
@@ -54,17 +81,17 @@ export async function POST(request: NextRequest) {
         </div>
       `,
       text: `
-        New Contact Form Message
-        
-        Name: ${name}
-        Email: ${email}
-        Subject: ${subject}
-        
-        Message:
-        ${message}
-        
-        This message was sent from your portfolio contact form.
-      `,
+New Contact Form Message
+
+Name: ${name}
+Email: ${email}
+Subject: ${subject}
+
+Message:
+${message}
+
+This message was sent from your portfolio contact form.
+      `.trim(),
     };
 
     // Send the email

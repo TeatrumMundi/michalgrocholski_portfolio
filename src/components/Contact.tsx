@@ -1,12 +1,10 @@
-import { MdOutlineLocationOn } from "react-icons/md";
+import { MdOutlineLocationOn, MdOutlineEmail } from "react-icons/md";
 import { HiOutlinePhone } from "react-icons/hi2";
-import { MdOutlineEmail } from "react-icons/md";
 import { FaRegMessage } from "react-icons/fa6";
-import { LuShield } from "react-icons/lu";
+import { LuShield, LuSend } from "react-icons/lu";
 import { FaWifi } from "react-icons/fa";
-import { LuSend } from "react-icons/lu";
 import { useState } from "react";
-import { contactInfo } from "../config/config";
+import { contactInfo } from "@/config/config";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -59,24 +57,26 @@ function Contact() {
   };
 
   return (
-    <div className="min-h-screen px-6 mt-30" id="contact">
-      <h1 className="text-5xl text-center animated-gradient">GET IN TOUCH</h1>
-      <h2 className="text-xl text-center mt-4 text-white/50">
+    <section className="min-h-screen px-6 py-16 mt-16" id="contact">
+      <h2 className="text-5xl font-bold text-center animated-gradient">
+        GET IN TOUCH
+      </h2>
+      <p className="text-xl text-center mt-4 text-white/50">
         Let&apos;s connect and turn your next project into something
         extraordinary.
-      </h2>
-      <div className="grid grod-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-10 md:items-start">
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mt-10 md:items-start">
         {/* Send Message section */}
         <div className="bg-gradient-to-r from-purple-400/10 via-fuchsia-500/10 to-pink-500/10 rounded-standard p-6 px-8 border border-purple-400/30 hover:border-fuchsia-500/50 transition-colors duration-300">
           <div className="flex flex-row justify-between items-center mb-6">
-            <h3 className="text-2xl">
+            <h3 className="text-2xl font-semibold">
               <FaRegMessage className="inline-block mr-4" />
               <span>Send Message</span>
             </h3>
-            <h4 className="text-lg flex items-center text-green-400 animate-pulse">
+            <span className="text-lg flex items-center text-green-400 animate-pulse">
               <FaWifi className="mr-2" />
               <span>Online</span>
-            </h4>
+            </span>
           </div>
 
           {/* Status Messages */}
@@ -177,7 +177,7 @@ function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-3 px-6 bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-600 hover:to-fuchsia-600 disabled:from-purple-500/50 disabled:to-fuchsia-500/50 text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-[1.02] disabled:scale-100 disabled:cursor-not-allowed"
+              className="w-full py-3 px-6 bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-600 hover:to-fuchsia-600 disabled:from-purple-500/50 disabled:to-fuchsia-500/50 text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-[1.02] disabled:scale-100 disabled:cursor-not-allowed cursor-pointer"
             >
               {isSubmitting ? (
                 <span className="flex items-center justify-center">
@@ -216,7 +216,7 @@ function Contact() {
         {/* Contact Information section */}
         <div className="bg-gradient-to-r from-blue-400/10 via-cyan-500/10 to-green-400/10 rounded-standard p-6 border border-blue-400/30 hover:border-cyan-500/50 transition-colors duration-300">
           <div className="flex flex-row justify-between items-center mb-6">
-            <h3 className="text-2xl">
+            <h3 className="text-2xl font-semibold">
               <LuShield className="inline-block mr-4" />
               <span>Contact Information</span>
             </h3>
@@ -275,7 +275,7 @@ function Contact() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
