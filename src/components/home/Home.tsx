@@ -16,11 +16,11 @@ function Home() {
     >
       <div className="flex flex-col items-center justify-center">
         {/* Left Side */}
-        <div className="w-full max-w-md text-left">
+        <div className="w-full max-w-lg text-left">
           <NameBox name={personalInfo.name} />
-          <h1 className="text-6xl sm:text-7xl font-bold mt-3 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-bold mt-3 leading-tight">
             <span className="block">{personalInfo.title1}</span>
-            <span className="block text-5xl sm:text-6xl bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text">
+            <span className="block text-3xl sm:text-4xl mt-1 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 text-transparent bg-clip-text">
               {personalInfo.title2}
             </span>
           </h1>

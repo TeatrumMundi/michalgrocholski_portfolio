@@ -53,15 +53,15 @@ export interface CertificationItem {
 
 export const personalInfo = {
   name: "Michał Grocholski",
-  title1: "Full Stack",
-  title2: "Developer",
-  subtitle: "Systems & Platform Validation Engineer",
+  title1: "Validation Platform Planner",
+  title2: "& Systems Engineer",
+  subtitle: "Systems & Platform Validation Engineer · Full Stack Developer",
   location: "Gdańsk, Poland",
   cvUrl: "/CV_Michał_Grocholski_2026_Q4.pdf",
   typewriterWords: [
     "Hi! My name is Michał Grocholski.",
-    "Systems & Platform Validation Engineer at Intel.",
-    "Full Stack Developer & M.Sc. IT Student in Gdańsk.",
+    "Validation Platform Planner & Systems Engineer at Intel.",
+    "M.Sc. IT Student & Full Stack Developer in Gdańsk.",
     "Welcome to my portfolio!",
   ],
 };
